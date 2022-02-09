@@ -2,7 +2,7 @@
 
 public class ConsoleRead
 {
-    public static string WriteToConsole(string message)
+    public static string ReadConsole()
     {
         var userInput = Console.ReadLine();
         return userInput;

@@ -5,25 +5,28 @@ using CsvHelper;
 using CsvHelper.Configuration;
 using CsvHelper.TypeConversion;
 using Utilities;
+using static Utilities.ConsoleRead;//imported method from utilities
+using static Utilities.ConsoleWrite;//imported method from utilities
+
 //you will need to run "dotnet add package CsvHelper" inside the consoleApp2 Project folder or create the project
 //if you are doing this from scratch or you can create the project with the solution by checking that
 //box when you create it and just add it in the project solution directory
 //put the path to the file you want to import
-Console.WriteLine("Enter The Absolute File Path for the playlist\r");
+WriteToConsole("Enter The Absolute File Path for the playlist\r");//refactored the writeline method
 var absoluteFilePath = "";
-var filePath = Console.ReadLine();
+var filePath = ReadConsole();//refactored readline method
 if (filePath == "")
 {
-    absoluteFilePath = "/Users/kwilliams/RiderProjects/playlistimport/data/music.csv";
+    absoluteFilePath = DefaultPath.FilePath();//importing filepath from utilities
 }
 
-Console.WriteLine("Enter The year\r");
-var readYear = Console.ReadLine();
+WriteToConsole("Enter The year\r"); //utilities function call
+var readYear = ReadConsole();//ConsoleWrite utilities function call 
 var songYear = 2015;
 if (readYear != String.Empty)
 {
     songYear = int.Parse(readYear);
-    ConsoleWrite.WriteToConsole(songYear.ToString());
+    WriteToConsole(songYear.ToString()); //reference to the ConsoleWrite class in the utilities namespace and function call
 }
 //here is creating a new list type using a function
 var records = CreateNewListOfType<Song>();

@@ -7,4 +7,3 @@ public class ConsoleWrite
         Console.WriteLine(message);
     }
 }
-
