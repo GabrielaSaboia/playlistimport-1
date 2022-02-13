@@ -37,7 +37,7 @@ List<T> CreateNewListOfType<T>()
 }
 Console.WriteLine(filePath);
 IEnumerable<Song> songs = new List<Song>();
-if (filePath != "")
+if (filePath != "") //filePath check to assing a user defined file path
 {
     absoluteFilePath = filePath;
 }
