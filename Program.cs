@@ -65,7 +65,7 @@ var songCountCount = songQueryResults.Count.ToString();
 WriteToConsole(songCountCount);
 foreach (Song song in songQueryResults)
 {
-    WriteToConsole("{0},{1}, {2}",song.Name,song.Artist, song.Genre);
+    Console.WriteLine("{0},{1}, {2}",song.Name,song.Artist, song.Genre);
 }
 
 using (var writer = new StreamWriter("./Output.csv"))
