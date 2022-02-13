@@ -19,7 +19,6 @@ if (filePath == "")
 {
     absoluteFilePath = DefaultPath.FilePath();//importing filepath from utilities
 }
-
 WriteToConsole("Enter The year\r"); //utilities function call
 var readYear = ReadConsole();//ConsoleWrite utilities function call 
 var songYear = 2015;
@@ -36,8 +35,12 @@ List<T> CreateNewListOfType<T>()
     List<T> records = new List<T>();
     return records;
 }
-
+Console.WriteLine(filePath);
 IEnumerable<Song> songs = new List<Song>();
+if (filePath != "")
+{
+    absoluteFilePath = filePath;
+}
 using (var reader = new StreamReader(absoluteFilePath))
 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 {
@@ -70,7 +73,7 @@ using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
 {
     csvWriter.WriteRecords(songQueryResults);
 }
-Console.WriteLine("Done");
+WriteToConsole("\nDone");
 
 
 /*
