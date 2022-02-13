@@ -45,12 +45,12 @@ using (var reader = new StreamReader(absoluteFilePath))
 using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 {
     csv.Context.RegisterClassMap<SongMap>();
-    Console.WriteLine("Reading the CSV File\r");
+    WriteToConsole("Reading the CSV File\r");
     records = csv.GetRecords<Song>().ToList();
 
 }
-Console.WriteLine($"Record Count = {records.Count}\r");
-Console.WriteLine("_____________________________\r");
+WriteToConsole($"Record Count = {records.Count}\r");
+WriteToConsole("_____________________________\r");
 //removes duplicates
 var distinctItems = records.GroupBy(x => x.Name).Select(y => y.First());
 //https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
@@ -77,12 +77,6 @@ WriteToConsole("\nDone");
 
 
 /*
-
-
-
-
-
-
 
 foreach (Song song in songQuery)
 {
