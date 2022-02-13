@@ -62,10 +62,10 @@ IEnumerable<Song> songQuery =
 
 var songQueryResults = songQuery.ToList();
 var songCountCount = songQueryResults.Count.ToString();
-Console.WriteLine(songCountCount);
+WriteToConsole(songCountCount);
 foreach (Song song in songQueryResults)
 {
-    Console.WriteLine("{0},{1}, {2}",song.Name,song.Artist, song.Genre);
+    WriteToConsole("{0},{1}, {2}",song.Name,song.Artist, song.Genre);
 }
 
 using (var writer = new StreamWriter("./Output.csv"))
