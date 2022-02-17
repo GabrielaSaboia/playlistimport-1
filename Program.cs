@@ -91,18 +91,7 @@ using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
     csvWriter.WriteRecords(songQuery);
 }
 */
-public class SongMap : ClassMap<Song>
-{
-    public SongMap()
-    {
-        Map(m => m.Name);
-        Map(m => m.Artist);
-        Map(m => m.Composer);
-        Map(m => m.Genre);
-        Map(m => m.Year).TypeConverter<CustomDateYearConverter>();
-        Map(m => m.Plays).TypeConverter<CustomIntConverter>();
-    }
-}
+
 
 public class CustomIntConverter : DefaultTypeConverter
 {
