@@ -1,4 +1,4 @@
-﻿namespace Utilities;
+﻿/*namespace Utilities;
 
 public class SetQueryProperty
 {
@@ -29,4 +29,4 @@ public class SetQueryProperty
             
         return song;
     }
-}
+}*/
