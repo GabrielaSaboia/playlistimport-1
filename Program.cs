@@ -8,6 +8,7 @@ using Utilities;
 using static Utilities.ConsoleRead;//imported method from utilities
 using static Utilities.ConsoleWrite;//imported method from utilities
 using static Utilities.OrderByProperty;
+using static Utilities.DisplayQuery;
 
 //you will need to run "dotnet add package CsvHelper" inside the consoleApp2 Project folder or create the project
 //if you are doing this from scratch or you can create the project with the solution by checking that
@@ -56,14 +57,9 @@ WriteToConsole("_____________________________\r");
 //function call to ask user to define how to organize their list
 IEnumerable<Song> songQuery = QueryByProperty(records, songYear);
 
-var songQueryResults = songQuery.ToList();
-var songCountCount = songQueryResults.Count.ToString();
-WriteToConsole(songCountCount);
-foreach (Song song in songQueryResults)
-{
-    Console.WriteLine("{0},{1}, {2}, {3}",song.Name,song.Artist, song.Genre, song.Plays);
-}
+QueryList(songQuery);
 
+var songQueryResults = songQuery.ToList();
 using (var writer = new StreamWriter("./Output.csv"))
 using (var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture))
 {

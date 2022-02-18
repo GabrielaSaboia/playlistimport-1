@@ -21,7 +21,7 @@ public class OrderByProperty
         {
             if (property == "name")
             {
-                IEnumerable<Song> songQuery = //QueryByProperty(distinctItems, songYear);
+                IEnumerable<Song> songQuery = 
                     from song in distinctItems
                     orderby song.Name 
                     where song.Year == new DateOnly(songYear,1,1)
@@ -30,7 +30,7 @@ public class OrderByProperty
             }
             if (property == "artist")
             {
-                IEnumerable<Song> songQuery = //QueryByProperty(distinctItems, songYear);
+                IEnumerable<Song> songQuery = 
                     from song in distinctItems
                     orderby song.Artist
                     where song.Year == new DateOnly(songYear,1,1)
@@ -39,7 +39,7 @@ public class OrderByProperty
             }
             if (property == "genre")
             {
-                IEnumerable<Song> songQuery = //QueryByProperty(distinctItems, songYear);
+                IEnumerable<Song> songQuery = 
                     from song in distinctItems
                     orderby song.Genre 
                     where song.Year == new DateOnly(songYear,1,1)
@@ -48,7 +48,7 @@ public class OrderByProperty
             }
             if (property == "times played")
             {
-                IEnumerable<Song> songQuery = //QueryByProperty(distinctItems, songYear);
+                IEnumerable<Song> songQuery = 
                     from song in distinctItems
                     orderby song.Plays 
                     where song.Year == new DateOnly(songYear,1,1)
@@ -62,7 +62,7 @@ public class OrderByProperty
         }
         else
         {
-            IEnumerable<Song> songQuery = //QueryByProperty(distinctItems, songYear);
+            IEnumerable<Song> songQuery = 
                 from song in distinctItems
                 orderby song.Plays 
                 where song.Year == new DateOnly(songYear,1,1)
