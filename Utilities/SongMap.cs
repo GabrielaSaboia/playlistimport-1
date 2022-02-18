@@ -11,6 +11,8 @@ public class SongMap : ClassMap<Song>
         Map(m => m.Composer);
         Map(m => m.Genre);
         Map(m => m.Year).TypeConverter<DateYearConverter>();
-        Map(m => m.Plays).TypeConverter<CustomIntConverter>();}
+        Map(m => m.Plays).TypeConverter<CustomIntConverter>();
+        
+    }
    
 }

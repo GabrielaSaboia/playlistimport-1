@@ -7,6 +7,7 @@ using CsvHelper.TypeConversion;
 using Utilities;
 using static Utilities.ConsoleRead;//imported method from utilities
 using static Utilities.ConsoleWrite;//imported method from utilities
+using static Utilities.OrderByProperty;
 
 //you will need to run "dotnet add package CsvHelper" inside the consoleApp2 Project folder or create the project
 //if you are doing this from scratch or you can create the project with the solution by checking that
@@ -51,21 +52,16 @@ using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
 }
 WriteToConsole($"Record Count = {records.Count}\r");
 WriteToConsole("_____________________________\r");
-//removes duplicates
-var distinctItems = records.GroupBy(x => x.Name).Select(y => y.First());
-//https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
-IEnumerable<Song> songQuery =
-    from song in distinctItems
-    orderby song.Plays
-    where song.Year == new DateOnly(songYear,1,1)
-    select song;
+
+//function call to ask user to define how to organize their list
+IEnumerable<Song> songQuery = QueryByProperty(records, songYear);
 
 var songQueryResults = songQuery.ToList();
 var songCountCount = songQueryResults.Count.ToString();
 WriteToConsole(songCountCount);
 foreach (Song song in songQueryResults)
 {
-    Console.WriteLine("{0},{1}, {2}",song.Name,song.Artist, song.Genre);
+    Console.WriteLine("{0},{1}, {2}, {3}",song.Name,song.Artist, song.Genre, song.Plays);
 }
 
 using (var writer = new StreamWriter("./Output.csv"))
