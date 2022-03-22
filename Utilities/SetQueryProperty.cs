@@ -5,25 +5,27 @@ public class SetQueryProperty
     public static IEnumerable<Song> SetQuery(String property, IEnumerable<Song> distinctItems, int songYear)
     {
         var hold = property.ToLower();
+        from song in distinctItems
+        
         if (hold == "name")
         {
-            hold = "Name";
+            hold = song.Name;
         }
         if (hold == "artist")
         {
-            hold = "Artist";
+            hold = song.Artist;
         }
         if (hold == "genre")
         {
-            hold = "Genre";
+            hold = song.Genre;
         }
         if (hold == "times played")
         {
-            hold = "Plays";
+            hold = song.Plays;
         }
         
-            from song in distinctItems
-            orderby song.hold
+            
+            orderby hold
             where song.Year == new DateOnly(songYear,1,1)
             select song;
             

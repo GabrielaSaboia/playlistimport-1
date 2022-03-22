@@ -53,9 +53,9 @@ WriteToConsole($"Record Count = {records.Count}\r");
 WriteToConsole("_____________________________\r");
 
 //function call to ask user to define how to organize their list
-IEnumerable<Song> songQuery = QueryByProperty(records, songYear);
+IEnumerable<Song> songQuery = QueryByProperty(records, songYear);//returns query according to a user specifies attribute
 
-QueryList(songQuery);
+QueryList(songQuery);//Lists the records returned by the query and displays them on the console
 
 var songQueryResults = songQuery.ToList();
 using (var writer = new StreamWriter("./Output.csv"))

@@ -9,7 +9,7 @@ public class OrderByProperty
     {
         
         WriteToConsole("Choose how you want to sort your list: " +
-                       "\nName" +
+                       "\nSong Name" +
                        "\nArtist" +
                        "\nGenre" +
                        "\nTimes Played");
